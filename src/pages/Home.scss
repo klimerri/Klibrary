@@ -18,4 +18,87 @@ body {
         height: 115px;
         gap: 20px;
     }
+
+    &__popular {
+        margin-top: 50px;
+
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__text {
+            color: $text-dark;
+            font-weight: 700;
+            font-size: 26px;
+        }
+
+        &__button {
+            border: none;
+            padding: 10px 17px;
+            border-radius: 20px;
+            background-color: $button-primary;
+            color: $text-secondary;
+            font-weight: 600;
+            font-size: 20px;
+            transition: background-color 0.3s linear;
+            cursor: pointer;
+
+            &:focus {
+                border: none;
+            }
+
+            &:hover {
+                background-color: $button-primary-hover;
+            }
+        }
+    }
+
+    &__related {
+        background-color: $primary-main;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
+
+        &__info {
+            width: 50%;
+        }
+
+        &__header {
+            color: $text-primary;
+            font-size: 25px;
+            font-weight: 700;
+            margin-top: 20px;
+            text-align: end;
+        }
+
+        &__text {
+            margin-top: 20px;
+            color: $text-primary;
+            font-size: 17px;
+            text-align: end;
+        }
+
+        &__button {
+            display: block;
+            margin-left: auto;
+            width: fit-content;
+            margin-top: 25px;
+            color: $text-secondary;
+            font-size: 18px;
+            font-weight: 700;
+            background-color: $button-primary;
+            padding: 10px 15px;
+            border-radius: 15px;
+            transition: background-color 0.3s linear;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $button-primary-hover;
+            }
+        }
+    }
 }

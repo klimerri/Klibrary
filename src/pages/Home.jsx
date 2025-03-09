@@ -1,8 +1,9 @@
 import { news } from "../api"
-import { Search } from "../components/Search/Search";
 import "./Home.scss"
 import { useAllNews } from "../hooks/news"
-import { BookCard } from "../components/BookCard/BookCard";
+import Alice from "../images/related/Alice.png"
+import { BookCard } from "../components/BookCard/BookCard"
+import { NavLink } from "react-router-dom"
 
 const genres = [
     {
@@ -76,6 +77,30 @@ export const Home = () => {
                     />
                     )
                 })}
+            </div>
+
+            <div className="home__popular">
+                <div className="home__popular__header">
+                    <h1 className="home__popular__text">Popular</h1>
+
+                    <button className="home__popular__button">View all</button>
+                </div>
+            </div>
+
+            <div className="home__related">
+                <img src={Alice} className="home__related__image"></img>
+
+                <div className="home__related__info">
+                    <h2 className="home__related__header">Curious Reads: Adventures Beyond Imagination</h2>
+
+                    <p className="home__related__text">Step into a world of whimsy and wonder with our
+                        collection of books inspired by the timeless charm of "Alice in Wonderland."
+                        Perfect for those who love to explore the extraordinary!
+                    </p>
+
+                    <NavLink to="*" className="home__related__button">Related</NavLink>
+                </div>
+
             </div>
         </div>
     )
