@@ -1,0 +1,39 @@
+@import '/src/styles/variables.scss';
+
+header {
+    background-color: $primary-main;
+}
+
+.header {
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 17px 0px;
+    }
+
+    &__logo {
+        font-size: 26px;
+        font-weight: 600;
+        color: $text-dark;
+    }
+
+    &__info {
+        display: flex;
+        gap: 30px;
+    }
+
+    &__home, &__contacts, &__bestseller {
+        font-size: 23px;
+        font-weight: 600;
+        color: $link-primary;
+        text-decoration: none;
+        transition: color 0.3s linear;
+
+        &:hover {
+            color: $link-hover;
+        }
+    }
+}

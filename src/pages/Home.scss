@@ -1,0 +1,21 @@
+@import "/src/styles/variables.scss";
+
+body {
+    background-color: $primary-light;
+}
+
+.home {
+    &__container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__genres {
+        margin-top: 40px;
+        display: flex;
+        overflow: hidden;
+        flex-wrap: wrap;
+        height: 115px;
+        gap: 20px;
+    }
+}
