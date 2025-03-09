@@ -1,8 +1,6 @@
-import { news } from "../api"
 import "./Home.scss"
-import { useAllNews } from "../hooks/news"
-import Alice from "../images/related/Alice.png"
-import { BookCard } from "../components/BookCard/BookCard"
+import Alice from "/src/images/related/Alice.png"
+import { BookCard } from "../../components/BookCard/BookCard"
 import { NavLink } from "react-router-dom"
 
 const genres = [
@@ -64,8 +62,6 @@ const genres = [
 ];
 
 export const Home = () => {
-    const {data: news, isFetching, } = useAllNews();
-
     return (
         <div className="home__container">
             <div className="home__genres">
@@ -79,13 +75,13 @@ export const Home = () => {
                 })}
             </div>
 
-            <div className="home__popular">
+            {/* <div className="home__popular">
                 <div className="home__popular__header">
                     <h1 className="home__popular__text">Popular</h1>
 
                     <button className="home__popular__button">View all</button>
                 </div>
-            </div>
+            </div> */}
 
             <div className="home__related">
                 <img src={Alice} className="home__related__image"></img>
@@ -98,7 +94,7 @@ export const Home = () => {
                         Perfect for those who love to explore the extraordinary!
                     </p>
 
-                    <NavLink to="*" className="home__related__button">Related</NavLink>
+                    <NavLink to="/related-alice" className="home__related__button">Related</NavLink>
                 </div>
 
             </div>

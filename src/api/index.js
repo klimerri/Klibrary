@@ -7,9 +7,13 @@ const instance = axios.create({
     }
 })
 
-
-export const news = {
-    getAll(hhh, params) {
-        return instance.get(`search-books?query=Crime&number=100`, params)
+export const books = {
+    // getAll(hhh, params) {
+    //     return instance.get(`search-books?query=alice`, params)
+    // },
+    getSimilarBooks(id) {
+        return instance.get(`${id}/similar`)
     }
 }
+
+
