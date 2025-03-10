@@ -1,62 +1,68 @@
 import "./Home.scss"
+import All from "/src/images/genres/All.svg"
+import Romantic from "/src/images/genres/Romantic.svg"
+import Manga from "/src/images/genres/Manga.svg"
 import Alice from "/src/images/related/Alice.png"
+import Fiction from "/src/images/genres/Fiction.svg"
+import Education from "/src/images/genres/Education.svg"
+import YellowBook from "/src/images/genres/Yellow-book.svg"
 import { BookCard } from "../../components/BookCard/BookCard"
 import { NavLink } from "react-router-dom"
 
 const genres = [
     {
         id: 1,
-        image: "/src/images/genres/All.svg",
+        image: All,
         name: "All",
     },
     {
         id: 2,
-        image: "/src/images/genres/Romantic.svg",
+        image: Romantic,
         name: "Romantic",
     },
     {
         id: 3,
-        image: "/src/images/genres/Manga.svg",
+        image: Manga,
         name: "Manga",
     },
     {
         id: 4,
-        image: "/src/images/genres/Fiction.svg",
+        image: Fiction,
         name: "Fiction",
     },
     {
         id: 5,
-        image: "/src/images/genres/Education.svg",
+        image: Education,
         name: "Education",
     },
     {
         id: 6,
-        image: "/src/images/genres/Yellow-book.svg",
+        image: YellowBook,
         name: "Fantasy",
     },
     {
         id: 7,
-        image: "/src/images/genres/Yellow-book.svg",
+        image: YellowBook,
         name: "Politics",
     },
     {
         id: 8,
-        image: "/src/images/genres/Yellow-book.svg",
+        image: YellowBook,
         name: "Horror",
     },
     {
         id: 9,
-        image: "/src/images/genres/Yellow-book.svg",
+        image: YellowBook,
         name: "Cook",
     },
     {
         id: 10,
-        image: "/src/images/genres/Yellow-book.svg",
+        image: YellowBook,
         name: "Dictionary",
     },
     {
         id: 11,
-        image: "/src/images/genres/Yellow-book.svg",
+        image: YellowBook,
         name: "Memoir",
     },
 ];
