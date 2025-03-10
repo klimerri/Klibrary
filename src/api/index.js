@@ -12,7 +12,7 @@ export const books = {
     //     return instance.get(`search-books?query=alice`, params)
     // },
     getSimilarBooks(id) {
-        return instance.get(`${id}/similar`)
+        return instance.get(`${id}/similar?number=100`)
     }
 }
 

@@ -75,13 +75,13 @@ export const Home = () => {
                 })}
             </div>
 
-            {/* <div className="home__popular">
+            <div className="home__popular">
                 <div className="home__popular__header">
                     <h1 className="home__popular__text">Popular</h1>
 
                     <button className="home__popular__button">View all</button>
                 </div>
-            </div> */}
+            </div>
 
             <div className="home__related">
                 <img src={Alice} className="home__related__image"></img>
