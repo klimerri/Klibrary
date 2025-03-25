@@ -13,6 +13,11 @@ export const books = {
     // },
     getSimilarBooks(id) {
         return instance.get(`${id}/similar?number=100`)
+    },
+    getBooksBySearch(search, number) {
+        if (!search) return null;
+
+        return instance.get(`search-books?query=${search}&number=${number}`)
     }
 }
 

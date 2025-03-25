@@ -4,14 +4,15 @@ import { Header } from './components/Header/Header.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RelatedAlice } from './pages/RelatedAlice/RelatedAlice.jsx'
 import { Footer } from './components/Footer/Footer.jsx'
+import { SearchBooks } from './pages/SearchBooks/SearchBooks.jsx'
 
- const client = new QueryClient({
+export const client = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false
     }
   }
- })
+})
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/related-alice" element={<RelatedAlice />}/>
+          <Route path="/search-books/:search" element={<SearchBooks/>}/>
         </Routes>
 
         <Footer />

@@ -1,0 +1,17 @@
+body {
+    background-color: $primary-light;
+}
+
+.search-books {
+    &__container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 40px;
+    }
+}

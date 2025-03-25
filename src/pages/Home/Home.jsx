@@ -8,6 +8,9 @@ import Education from "/src/images/genres/Education.svg"
 import YellowBook from "/src/images/genres/Yellow-book.svg"
 import { BookCard } from "../../components/BookCard/BookCard"
 import { NavLink } from "react-router-dom"
+import { FormProvider } from "react-hook-form"
+import { useForm } from "react-hook-form"
+
 
 const genres = [
     {
@@ -68,8 +71,66 @@ const genres = [
 ];
 
 export const Home = () => {
+    const methods = useForm({
+        defaultValues: {
+            email: '',
+            password: '',
+            name: '',
+            phone: '',
+        }, 
+        mode: 'onBlur'
+    });
+
+    const { register, handleSubmit, formState } = methods;
+
+    const onSubmit = handleSubmit((values) => {
+        alert(JSON.stringify(values));
+    })
+    
     return (
         <div className="home__container">
+            <div className="form__wrapper">
+                {/* <FormProvider {...methods} handleSubmit={(values) => {
+                    alert(values)
+                }}>
+                    <input {...register('name', {
+                        required: 'Это поле обязательное',
+                        pattern: {
+                            value: /^[A-Za-z]+$/i,
+                            message: 'Ошибка' 
+                        }
+                    })} placeholder="name"/>
+
+                    {formState?.errors?.name?.message}
+
+                    <input {...register('email', {
+                        required: 'Это поле обязательное'
+                        })} placeholder="email"/>
+
+                    {formState?.errors?.email?.message}
+
+
+                    <input {...register('phone', {
+                        required: 'Это поле обязательное'
+                        })} placeholder="phone"/>
+
+                    {formState?.errors?.phone?.message}
+
+                    <input {...register('password', {
+                        required: 'Это поле обязательное',
+                        minLength: {
+                            value: 8,
+                            message: 'Минимум 8 символов'
+                        }
+                        })} placeholder="password"/>
+
+                    {formState?.errors?.password?.message}
+
+                    <button onClick={onSubmit}>Submit</button>
+                </FormProvider> */}
+            </div>
+
+
             <div className="home__genres">
                 {genres.map(item => {
                     return (<BookCard 
@@ -102,7 +163,6 @@ export const Home = () => {
 
                     <NavLink to="/related-alice" className="home__related__button">Related</NavLink>
                 </div>
-
             </div>
         </div>
     )
