@@ -10,7 +10,8 @@ import { BookCard } from "../../components/BookCard/BookCard"
 import { NavLink } from "react-router-dom"
 import { FormProvider } from "react-hook-form"
 import { useForm } from "react-hook-form"
-
+import { useAuthContext } from '../../context/AuthContext'
+import {useEffect } from 'react'
 
 const genres = [
     {
@@ -71,6 +72,10 @@ const genres = [
 ];
 
 export const Home = () => {
+    const authData = useAuthContext();
+
+    const { user } = {};
+
     const methods = useForm({
         defaultValues: {
             email: '',

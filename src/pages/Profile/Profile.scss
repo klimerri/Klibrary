@@ -1,0 +1,71 @@
+.profile {
+    &__container {
+        width: 1200px;
+        margin: 60px auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        font-family: "Space Mono", monospace;
+	    font-style: normal;
+        font-size: 35px;
+        color: $text-dark;
+        font-weight: 700;
+        margin: 0 auto;
+    }
+
+    &__icon {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    &__subtitle {
+        font-size: 24px;
+        color: $text-dark;
+        font-weight: 700;
+    }
+
+    &__text {
+        font-size: 24px;
+        color: $text-primary;
+        font-weight: 500;
+    }
+
+    &__sign-out {
+        font-size: 23px;
+        font-weight: 600;
+        color: $text-secondary;
+        text-decoration: none;
+        transition: background-color 0.3s linear;
+        border: none;
+        background-color: $button-primary;
+        font-family: "Space Mono", monospace;
+	    font-style: normal;
+        width: max-content;
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin-left: auto;
+
+        &:hover {
+            background-color: $button-primary-hover;
+        }
+    }
+}

@@ -5,7 +5,7 @@ import { BookCard } from "../../components/BookCard/BookCard";
 import { FormProvider, useForm } from 'react-hook-form';
 
 export const SearchBooks = () => {
-    const {search} = useParams();    
+    const {search} = useParams();
     const methods = useForm({
         defaultValues: {
             number: 10,

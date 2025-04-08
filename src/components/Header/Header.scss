@@ -20,10 +20,11 @@ header {
 
     &__info {
         display: flex;
+        align-items: center;
         gap: 30px;
     }
 
-    &__home, &__contacts, &__bestseller {
+    &__home, &__contacts, &__bestseller, &__sign-out {
         font-size: 23px;
         font-weight: 600;
         color: $link-primary;
@@ -33,5 +34,12 @@ header {
         &:hover {
             color: $link-hover;
         }
+    }
+
+    &__sign-out {
+        border: none;
+        background-color: transparent;
+        font-family: "Space Mono", monospace;
+	    font-style: normal;
     }
 }
