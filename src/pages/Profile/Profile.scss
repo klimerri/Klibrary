@@ -35,6 +35,11 @@
         display: flex;
         flex-direction: column;
         gap: 14px;
+
+        &__name {
+            display: flex;
+            gap: 20px;
+        }
     }
 
     &__subtitle {
@@ -68,4 +73,20 @@
             background-color: $button-primary-hover;
         }
     }
-}
+
+    &__change-name {
+        font-family: "Space Mono", monospace;
+	    font-style: normal;
+        font-size: 17px;
+        border: none;
+        background-color: $button-primary;
+        transition: background-color 0.3s linear;
+        color: $text-secondary;
+        font-weight: 600;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: $button-primary-hover;
+        }
+    }
+ }

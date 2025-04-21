@@ -9,7 +9,8 @@ import { SignUp } from './pages/SignUp/SignUp.jsx'
 import { AuthContextProvider } from "./context/AuthContext"
 import { Profile } from './pages/Profile/Profile.jsx'
 import { Login } from './pages/Login/Login.jsx'
-
+import { Router } from './router.jsx';
+ 
 export const client = new QueryClient({
   defaultOptions: {
     queries: {
@@ -23,20 +24,7 @@ function App() {
     <>
     <QueryClientProvider client={client}>
       <AuthContextProvider>
-        <BrowserRouter>
-          <Header />
-
-          <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/related-alice" element={<RelatedAlice />}/>
-            <Route path="/search-books/:search" element={<SearchBooks/>}/>
-            <Route path="/sign-up" element={<SignUp/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-          </Routes>
-
-          <Footer />
-        </BrowserRouter>
+          <Router />
       </AuthContextProvider>
     </QueryClientProvider>
     </>
