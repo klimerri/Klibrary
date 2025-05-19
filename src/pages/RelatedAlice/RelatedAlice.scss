@@ -19,3 +19,14 @@
         margin-top: 40px;
     }
 }
+
+.modal {
+    position: fixed;
+    height: calc(100svh - 40px);
+    width: calc(100svw - 40px);
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1000;
+    
+}

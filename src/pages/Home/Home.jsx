@@ -12,6 +12,7 @@ import { FormProvider } from "react-hook-form"
 import { useForm } from "react-hook-form"
 import { useAuthContext } from '../../context/AuthContext'
 import {useEffect } from 'react'
+import { usePopularBooks } from "../../hooks/books"
 
 const genres = [
     {
@@ -72,70 +73,12 @@ const genres = [
 ];
 
 export const Home = () => {
-    const authData = useAuthContext();
+    const {data: books} = usePopularBooks(15);
 
-    const { user } = {};
-
-    const methods = useForm({
-        defaultValues: {
-            email: '',
-            password: '',
-            name: '',
-            phone: '',
-        }, 
-        mode: 'onBlur'
-    });
-
-    const { register, handleSubmit, formState } = methods;
-
-    const onSubmit = handleSubmit((values) => {
-        alert(JSON.stringify(values));
-    })
+    console.log(books)
     
     return (
         <div className="home__container">
-            <div className="form__wrapper">
-                {/* <FormProvider {...methods} handleSubmit={(values) => {
-                    alert(values)
-                }}>
-                    <input {...register('name', {
-                        required: 'Это поле обязательное',
-                        pattern: {
-                            value: /^[A-Za-z]+$/i,
-                            message: 'Ошибка' 
-                        }
-                    })} placeholder="name"/>
-
-                    {formState?.errors?.name?.message}
-
-                    <input {...register('email', {
-                        required: 'Это поле обязательное'
-                        })} placeholder="email"/>
-
-                    {formState?.errors?.email?.message}
-
-
-                    <input {...register('phone', {
-                        required: 'Это поле обязательное'
-                        })} placeholder="phone"/>
-
-                    {formState?.errors?.phone?.message}
-
-                    <input {...register('password', {
-                        required: 'Это поле обязательное',
-                        minLength: {
-                            value: 8,
-                            message: 'Минимум 8 символов'
-                        }
-                        })} placeholder="password"/>
-
-                    {formState?.errors?.password?.message}
-
-                    <button onClick={onSubmit}>Submit</button>
-                </FormProvider> */}
-            </div>
-
-
             <div className="home__genres">
                 {genres.map(item => {
                     return (<BookCard 
@@ -152,6 +95,17 @@ export const Home = () => {
                     <h1 className="home__popular__text">Popular</h1>
 
                     <button className="home__popular__button">View all</button>
+                </div>
+
+                <div className="home__popular-wrapper">
+                    {books?.map(book => (
+                        <BookCard 
+                            image={book[0].image}
+                            name={book[0].title}
+                            width="90"
+                            isApiImage={true}
+                        />
+                    ))}
                 </div>
             </div>
 

@@ -5,6 +5,8 @@ import { auth } from "../../api/firebase";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { updateProfile } from 'firebase/auth';
+import ReactModal from "react-modal";
+import { FormProvider, useForm } from "react-hook-form";
 
 export const Profile = () => {
     const cx = useAuthContext();
@@ -21,8 +23,11 @@ export const Profile = () => {
         setEdit(false);
     }
 
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     return (
         <div className="profile__container">
+            {cx && <ProfileModal {...{modalIsOpen, setModalIsOpen, cx}}></ProfileModal>}
             <span className="profile__header">Profile</span>
 
             <img className="profile__icon" src={userIcon}></img>
@@ -33,7 +38,7 @@ export const Profile = () => {
                     <div className="profile__item__name">
                         {
                             isEdit 
-                                ? <input type="text" value={username} onChange={handleChange}/> 
+                                ? <input className="profile__input" type="text" value={username} onChange={handleChange}/> 
                                 : <span className="profile__text">{username}</span>
                         }
 
@@ -65,5 +70,32 @@ export const Profile = () => {
 
             {/* <button onClick={() => writeUserData(cx.user.uid, '123', '12345', 20, 'none')}>Обновить</button> */}
         </div>
+    )
+}
+
+const ProfileModal = ({modalIsOpen, setModalIsOpen, cx}) => {
+    const methods = useForm
+    ({
+        defaultValues: {
+            email: cx?.user?.email || '',
+            name: cx?.user?.displayName || ''
+        }
+    })
+
+    const buttonSubmit = methods.handleSubmit((value) => {
+        console.log(value);
+        updateProfile(cx.user, {displayName: username}).then(()=> user.currentUser.reload())
+    })
+
+    return (
+        <ReactModal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+            <FormProvider {...methods}>
+                <form>
+                    <span>{cx?.user?.email}</span>
+                    <input>{cx?.user?.displayName}</input>
+                    <button onClick={buttonSubmit}>Submit</button>
+                </form>
+            </FormProvider>
+        </ReactModal>
     )
 }

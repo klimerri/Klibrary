@@ -18,6 +18,12 @@ export const books = {
         if (!search) return null;
 
         return instance.get(`search-books?query=${search}&number=${number}`)
+    },
+    getPopularBooks(number) {
+        return instance.get(`search-books?query=popular+books&number=${number}`)   
+    },
+    getBookById(id) {
+        return instance.get(`${id}`)
     }
 }
 

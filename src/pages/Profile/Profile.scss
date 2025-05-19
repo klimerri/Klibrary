@@ -89,4 +89,18 @@
             background-color: $button-primary-hover;
         }
     }
+
+    &__input {
+        border: none;
+        border-radius: 20px;
+        padding: 8px 14px;
+        box-sizing: border-box;
+        font-family: "Space Mono", monospace;
+	    font-style: normal;
+        font-size: 20px;
+        color: $text-dark;
+        font-weight: 700;
+        background-color: $primary-dark;
+        outline: none;
+    }
  }

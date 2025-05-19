@@ -24,9 +24,7 @@ export const Search = () => {
     return (
         <FormProvider {...methods} className="search__form" handleSubmit={onSubmit}>
             <label htmlFor="search" className="search__label">
-                <input {...register('search', {
-                    required: 'Это поле обязательное'
-                })} type="text" id="search" placeholder="Find your book" className="search__input"></input>
+                <input {...register('search', {})} type="text" id="search" placeholder="Find your book" className="search__input"></input>
 
                 {formState?.errors?.search?.message}
             </label>

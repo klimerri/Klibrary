@@ -27,3 +27,18 @@ export const useBooksBySearch = (search, number = 10) => {
     })
 }
 
+export const usePopularBooks = (number) => {
+    return useQuery({
+        queryKey: ['popular-books', number],
+        queryFn: () => books.getPopularBooks(number),
+        select: data => data.data.popular
+    })
+}
+
+export const useOneBookById = (id) => {
+    return useQuery({
+        queryKey: ['one-book-id', id],
+        queryFn: () => books.getBookById(id),
+        enabled: !!id
+    })
+}
