@@ -1,8 +1,22 @@
-# React + Vite
+# Klibrary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Klibrary - онлайн-библиотека. Сайт для поиска информации о книгах. Проект разработан с использованием бесплатного API, которое предоставляло информацию о книгах. Сейчас API не поддерживается, поэтому часть функционала недоступна. 
 
-Currently, two official plugins are available:
+## Функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Поиск книг по названию;
+2. Поиск книг по жанрам;
+3. Просмотр краткой информации по книге;
+4. Регистрация и авторизация пользователей;
+
+## Используемые технологии
+
+- React (JS)
+- SCSS
+- Firebase authentication
+- REST API
+
+## Цели проекта 
+
+Проект создавался для учебной практики с REST API, обработки запросов, реализации авторизации пользователя и создания динамического интерфейса. Часть запланированного функционала была недоделана, так как стороннее бесплатное API недоступно. 
+

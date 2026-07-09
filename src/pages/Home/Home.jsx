@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form"
 import { useAuthContext } from '../../context/AuthContext'
 import {useEffect } from 'react'
 import { usePopularBooks } from "../../hooks/books"
+import { useState } from "react"
 
 const genres = [
     {
@@ -76,7 +77,53 @@ export const Home = () => {
     const {data: books} = usePopularBooks(15);
 
     console.log(books)
-    
+
+    const [question, setQuestion] = useState("");
+    const [status, setStatus] = useState("");
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = async () => {
+    if (!question.trim()) {
+        setStatus("Введите вопрос");
+        return;
+    }
+
+    try {
+        const res = await fetch("http://localhost:8000/api/v1/lead", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "X-API-Key": import.meta.env.VITE_API_TOKEN, 
+            },
+            body: JSON.stringify({
+                phone: phone,
+                email: email,
+                message: question,
+                custom_fields_schema: {
+                    clientName: name
+                }
+            })
+        });
+
+        console.log(import.meta.env.VITE_API_TOKEN);
+
+        if (res.ok) {
+            setStatus("Ваш вопрос отправлен!");
+            setQuestion("");
+            setName("");
+            setPhone("");
+            setEmail("");
+        } else {
+            setStatus("Ошибка при отправке.");
+        }
+    } catch (err) {
+        console.error(err);
+        setStatus("Сетевая ошибка.");
+    }
+};
+
     return (
         <div className="home__container">
             <div className="home__genres">
